@@ -1,0 +1,206 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  direction: rtl;
+  padding: 20px;
+  background: #e6f2ff;
+  color: #003366;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  color: #002244;
+  font-size: 3.2em;
+  font-weight: 900;
+  font-family: 'Segoe UI Black', 'Arial Black', Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+img {
+  position: absolute;
+}
+
+.song-meta strong {
+  text-decoration: underline;
+  margin-right: 6px;
+  display: inline-block;
+  min-width: 85px;
+  text-align: right;
+  font-weight: 700;
+  font-family: 'Segoe UI Semibold', Tahoma, Geneva, sans-serif;
+  color: #004488;
+}
+
+input,
+textarea,
+select,
+button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: auto;
+  border: 1px solid #99c2ff;
+  border-radius: 4px;
+  font-size: 1em;
+  background: #f0f8ff;
+}
+
+textarea {
+  resize: vertical;
+  height: auto;
+  min-height: 60px;
+  min-width: 200px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.7em;
+}
+
+textarea::placeholder {
+  direction: rtl;
+  text-align: right;
+}
+
+#fChords {
+  direction: ltr;
+}
+
+button {
+  background-color: #3399ff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #007acc;
+}
+
+ul#songList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+ul#songList li {
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 1px solid #aaccee;
+  background-color: #f9fcff;
+  border-radius: 3px;
+}
+
+.song {
+  border: 1px solid #aaccee;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #cce0ff;
+}
+
+.song-meta {
+  font-size: 0.95em;
+  color: #003366;
+}
+
+.lyrics {
+  white-space: pre-wrap;
+  line-height: 2.4em;
+  font-size: 1.2em;
+  font-family: 'Assistant', 'Arial', sans-serif;
+  direction: rtl;
+  color: #002244;
+}
+
+/* תיקון מיקום האקורדים: להוריד את העלייה מעל המילה, לקרב את האקורד למילה שמתחת */
+.word-with-chord {
+  display: inline-block;
+  position: relative;
+}
+
+/*
+  left: 50%;
+  transform: translateX(-50%);
+}*/
+
+.word-with-chord::before {
+  content: attr(data-chord);
+  position: absolute;
+  top: -1em;
+  left: 0;
+  transform: none;
+  font-weight: bold;
+  color: #0033aa;
+  font-size: 0.85em;
+  font-family: 'Consolas', monospace;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+pre#generatedCode {
+  background: #f5fbff;
+  border: 1px solid #aaccee;
+  border-radius: 4px;
+  padding: 10px;
+  color: #003355;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* הוספת סגנון למודאל של טופס הוספת שיר, שיירחף מעל התוכן */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #eee;
+  padding: 15px;
+  border: 1px solid #999;
+  max-width: 400px;
+  max-height: 70vh;
+  /* או כל גובה אחר שתרצה */
+  overflow-y: auto;
+  width: 90%;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* כפתור סגירה קטן בפינה של המודאל */
+.close-btn {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #333;
+  font-weight: bold;
+}
+
+#transposeControls {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #002244;
+  flex-wrap: wrap;
+}
+
+/* התאמת גודל כפתורי טרנספוזיציה */
+#transposeControls button,
+#transposeValue {
+  font-size: 0.9em;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+#transposeValue {
+  direction: ltr;
+}

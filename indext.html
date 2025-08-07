@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>🎵שירים+אקורדים🎶</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>מאגר שירים עם אקורדים:🎼<img src="images\b-g2.jpg" width="150" height="150"
+            style="border-radius: 10px; margin: 10px;"></h1>
+    <!-- הערה: הוספת פסקת הסבר מתחת לכותרת האתר -->
+    <p class="site-description">
+        כאן תוכלו למצוא שירים עם אקורדים, לבצע טרנספוזיציה בלחיצת כפתור, ולהוסיף שירים חדשים בצורה פשוטה ונוחה!
+    </p>
+
+    <input type="text" id="searchTitle" placeholder="חיפוש לפי שם שיר" />
+    <input type="text" id="searchArtist" placeholder="חיפוש לפי שם זמר" />
+
+    <ul id="songList"></ul>
+
+    <div id="transposeControls" style="display: none;">
+        <button onclick="transposeAll(1)">➕העלה חצי טון</button>
+        <span id="transposeValue">0</span>
+        <button onclick="transposeAll(-1)">➖הורד חצי טון</button>
+        <button onclick="resetTranspose()">🔄איפוס</button>
+        <button onclick="applyEasiestKey()">🎯סולם אקורדים קל</button>
+    </div>
+
+    <div id="songsContainer" style="display: none;"></div>
+
+    <button id="addSongBtn" style="position: fixed; top: 20px; left: 20px; z-index: 999;">🆕הוסף שיר חדש</button>
+
+    <!-- הערה: טופס הוספת שיר כמודאל עם כפתור סגירה -->
+    <div id="songForm" class="modal">
+        <button class="close-btn" onclick="document.getElementById('songForm').style.display='none'">❌</button>
+        <h3>הוסף שיר חדש</h3>
+        <!-- הערה: שדות חובה עם required -->
+        <input id="fTitle" placeholder="שם השיר" required />
+        <input id="fArtist" placeholder="שם הזמר" required />
+        <!-- הערה: שדה שפה כבר עם ברירת מחדל לעברית -->
+        <label for="fLang">שפה:</label>
+        <select id="fLang">
+            <option value="he" selected>עברית</option>
+            <option value="en">English</option>
+        </select>
+        <!-- הערה: שדה סולם אקורדים קל עם סוג מספר, תחום וערך ברירת מחדל -->
+        <label for="fEasiestKey">הכנס את הטרנפורמציה לסולם האוקרדים הכי קל:</label>
+        <input id="fEasiestKey" type="number" min="-12" max="12" step="0.5" value="0" />
+
+        <textarea id="fChords" placeholder="רשימת אקורדים מופרדת בפסיקים" required></textarea>
+        <textarea id="fLyrics" placeholder="מילות השיר עם <1> <2> וכו׳" required></textarea>
+        <button onclick="generateSongCode()">📋 צור קוד JS</button>
+        <pre id="generatedCode"></pre>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
