@@ -10,9 +10,8 @@
 </head>
 
 <body>
-    <h1>מאגר שירים עם אקורדים:🎼<img src="images\b-g2.jpg" width="150" height="150"
-            style="border-radius: 10px; margin: 10px;"></h1>
-    <!-- הערה: הוספת פסקת הסבר מתחת לכותרת האתר -->
+    <h1>מאגר שירים עם אקורדים:🎼<!--<img src="images/b-g2.jpg" width="150" height="150"
+            style="border-radius: 10px; margin: 10px;">--></h1>
     <p class="site-description">
         כאן תוכלו למצוא שירים עם אקורדים, לבצע טרנספוזיציה בלחיצת כפתור, ולהוסיף שירים חדשים בצורה פשוטה ונוחה!
     </p>
@@ -32,15 +31,32 @@
 
     <div id="songsContainer" style="display: none;"></div>
 
-    <button id="addSongBtn" style="position: fixed; top: 20px; left: 20px; z-index: 999;">🆕הוסף שיר חדש</button>
+    <button id="addSongBtn" style="position: fixed; top: 20px; left: 20px; z-index: 999;">🆕שיר חדש</button>
 
     <!-- הערה: טופס הוספת שיר כמודאל עם כפתור סגירה -->
     <div id="songForm" class="modal">
         <button class="close-btn" onclick="document.getElementById('songForm').style.display='none'">❌</button>
-        <h3>הוסף שיר חדש</h3>
+        <h3>מילוי פרטים לשיר נוסף:</h3>
         <!-- הערה: שדות חובה עם required -->
         <input id="fTitle" placeholder="שם השיר" required />
         <input id="fArtist" placeholder="שם הזמר" required />
+        <label for="fYear">שנת הוצאה:</label>
+        <select id="fYear"></select>
+
+        <script>
+            const yearSelect = document.getElementById("fYear");
+            const currentYear = new Date().getFullYear();
+
+            for (let y = 1900; y <= 2100; y++) {
+                const option = document.createElement("option");
+                option.value = y;
+                option.textContent = y;
+                if (y === currentYear) option.selected = true; // ברירת מחדל לשנה הנוכחית
+                yearSelect.appendChild(option);
+            }
+        </script>
+        <input id="fComposer" placeholder="שם המלחין" required />
+        <input id="fAlbum" placeholder="שם האלבום" required />
         <!-- הערה: שדה שפה כבר עם ברירת מחדל לעברית -->
         <label for="fLang">שפה:</label>
         <select id="fLang">
@@ -61,4 +77,3 @@
 </body>
 
 </html>
-
