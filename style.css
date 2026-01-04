@@ -75,7 +75,7 @@ button:hover {
 }
 
 ul#songList {
-  list-style: none;
+  list-style: disc;
   padding: 0;
   margin-top: 10px;
 }
@@ -292,3 +292,4 @@ pre#generatedCode {
     font-size: 0.85em;
   }
 }
+
