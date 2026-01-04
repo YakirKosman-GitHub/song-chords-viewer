@@ -1,0 +1,59 @@
+{
+        title: "שם השיר",
+        artist: "שם הזמר",
+        year: "שנת הוצאה",
+        composer: "שם המלחין",
+        album: "שם האלבום",
+        lang: "he",
+        chords: ["F", "Bb", "G", "C"],
+        easiestKeyShift: -2,
+    }, {
+        title: "אור החיים",
+        artist: "ישי ריבו",
+        year: "2016",
+        composer: "ישי ריבו",
+        album: "פחד גבהים",
+        lang: "he",
+        chords: ["C", "Am", "Em", "F", "G", "E", "Eb", "Dm"],
+        easiestKeyShift: 0
+    },
+    {
+        title: "צעדים",
+        artist: "עקיבא תורג'מן",
+        year: "",
+        composer: "",
+        album: "",
+        lang: "he",
+        chords: ["Am", "C", "Dm", "F", "G", "Em"],
+        easiestKeyShift: 0
+    },
+    {
+        title: "song name",
+        artist: "singer name",
+        year: "",
+        composer: "",
+        album: "",
+        lang: "en",
+        chords: ["A", "B", "C", "D"],
+        easiestKeyShift: 1.5
+    },
+    {
+        title: "אחינו כל בית ישראל",
+        artist: "אייבי רוטנברג",
+        year: "",
+        composer: "",
+        album: "",
+        lang: "he",
+        chords: ["Am", "Dm", "E", "Bb", "Em", "G", "F"],
+        easiestKeyShift: 0
+    },
+    {
+        title: "תראי אהובתי",
+        artist: "אושר כהן",
+        year: "",
+        composer: "",
+        album: "",
+        lang: "he",
+        chords: ["Am", "G", "Em", "F", "C"],
+        easiestKeyShift: 0
+    }
