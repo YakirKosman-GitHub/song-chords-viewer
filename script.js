@@ -17,8 +17,12 @@ fetch("songs/index.json")
 let transposeAmount = 0;
 let currentSong = null;
 
+function songTitleToFilename(title) {
+    return title.trim().replace(/\s+/g, "-") + ".txt";
+}
+
 function loadSongFile(song) {
-    return fetch(`songs/${song.file}`).then(r => r.text());
+    return fetch("songs/" + songTitleToFilename(song.title)).then(r => r.text());
 }
 
 function parseLyrics(rawLyrics, chords) {
@@ -150,7 +154,7 @@ function filterSongs() {
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("searchTitle").addEventListener("input", filterSongs);
     document.getElementById("searchArtist").addEventListener("input", filterSongs);
-    renderSongList(songsData);
+    //renderSongList(songsData);
 });
 
 document.getElementById("addSongBtn").addEventListener("click", () => {
@@ -181,4 +185,5 @@ function generateSongCode() {
   }`;
     document.getElementById("generatedCode").textContent = code;
 }
+
 
